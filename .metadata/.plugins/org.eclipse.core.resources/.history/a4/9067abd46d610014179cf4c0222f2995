@@ -1,0 +1,34 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+public class YellowPanel extends JPanel {
+
+	public void paintComponent(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		
+		//Draw the top road (30mph 7mi wide)
+		g2.drawLine(225, 0, 225, 205);
+		g2.drawLine(285, 0, 285, 205);
+
+		g2.setColor(Color.BLUE);
+		//Draw the bottom road (30mph 7mi wide)
+		g2.drawLine(225, 500, 225, 295);
+		g2.drawLine(285, 500, 285, 295);
+		
+		g2.setColor(Color.red);
+		//Draw the left road (50mph 9mi wide)
+		g2.drawLine(0, 205, 225, 205);
+		g2.drawLine(0, 295, 225, 295);
+		
+		g2.setColor(Color.magenta);
+		//Draw the right road (50mph 9mi wide)
+		g2.drawLine(500, 205, 225, 205);
+		g2.drawLine(500, 295, 285, 295);
+		
+		
+	}
+
+}

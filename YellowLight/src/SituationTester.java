@@ -50,7 +50,7 @@ public class SituationTester {
 			stopInTime[x] = physics.canStopTime();
 			stopInDist[x] = physics.canStopDistance();
 		}
-		
+		/*
 		System.out.println();
 		System.out.println("Velocity:");
 		SituationTester.print(velocity);
@@ -78,7 +78,7 @@ public class SituationTester {
 		
 		System.out.println("stopInDist:");
 		SituationTester.print(stopInDist);
-		
+		*/
 		
 		
 		

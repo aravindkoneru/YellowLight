@@ -1,0 +1,16 @@
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+public class YellowPanel extends JPanel {
+
+	public void paintComponent(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		//g2.drawLine(250, 0, 250, 250);
+		g2.drawLine(225, 0, 225, 250);
+		g2.drawLine(285, 0, 285, 250);
+
+	}
+
+}
