@@ -17,10 +17,10 @@ TODO
 ====
 
 - [x] ~~Assume that the driver continues at a constant velocity~~
-- [ ] Create graphical representation of simulation 
+- [x] Create graphical representation of simulation 
 - [ ] Simulate the cycles of the other lights (red, green)
-- [ ] Simulate the intersection 
-- [ ] Determine optimal cycle 
+- [x] Simulate the intersection 
+- [x] Determine optimal cycle 
 - [x] ~~Run tests with other velocities~~
 
 Credit
