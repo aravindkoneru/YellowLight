@@ -1,0 +1,45 @@
+//Use this class to get the position of cars.
+/*
+ * Given the rate of change, this class will determine what the new 
+ * x and y cordinates of the car should be. 
+ */
+
+public class Car {
+	
+	private double a = 0;
+	private double vi = 0;
+	private int xCord = 0;
+	private int yCord = 0; 
+	private boolean speed = false;
+	
+	public Car(double vI, double acel, int x, int y, boolean mph){
+		a = acel;
+		vi = vI;
+		xCord = x;
+		yCord = y;
+		speed = mph;
+	}
+	
+	public int getX(){
+		return xCord;
+	}
+	
+	public int getY(){
+		return yCord;
+	}
+	
+	public boolean getSpeed(){
+		return speed;
+	}
+	
+	public void calcMovement(int time){
+		double change = vi + a * time;
+		if(speed){
+			xCord += Math.abs(change);
+		} else{
+			yCord += Math.abs(change);
+		}
+		
+	}
+
+}

@@ -8,10 +8,12 @@ public class RandomSituationGen {
 	private int fromLight = 0;//for random distance from yellow light (ft)
 	private final double reactionTime = 1;//reaction time (s)
 	private double lightTime = 0;
+	private boolean speed = false;
 	
-	public RandomSituationGen(boolean speed){//if speed: use faster (50)
+	public RandomSituationGen(boolean sped){//if speed: use faster (50)
+		speed = sped;
 		genAcceleration();
-		if(speed){
+		if(sped){
 			genVI50();
 			distanceFromLight50();
 		} else{
@@ -59,6 +61,10 @@ public class RandomSituationGen {
 	
 	public double getLightTime(){
 		return lightTime;
+	}
+	
+	public boolean getSpeed(){
+		return speed;
 	}
 	
 	public String toString(){

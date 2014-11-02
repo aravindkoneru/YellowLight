@@ -1,0 +1,83 @@
+//Use this class to get the position of cars.
+/*
+ * Given the rate of change, this class will determine what the new 
+ * x and y cordinates of the car should be. 
+ */
+
+public class Car {
+
+	private double a = 0;
+	private double vi = 0;
+	private int xCord = 0;
+	private int yCord = 0;
+	private boolean speed = false;
+	private int time = -1;
+	private String pass = "false";// ghetto boolean ftw
+
+	public Car(double vI, double acel, int x, int y, boolean mph, String canPass) {
+		a = acel;
+		vi = vI;
+		xCord = x;
+		yCord = y;
+		speed = mph;
+		pass = canPass;
+	}
+
+	public int getX() {
+		return xCord;
+	}
+
+	public int getY() {
+		return yCord;
+	}
+
+	public boolean getSpeed() {
+		return speed;
+	}
+
+	public void moreTime() {
+		time++;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public int getChange() {
+		return (int) (vi + (a * time));
+	}
+
+	public void calcMovement() {
+		if (pass.equals("true")) {
+			if (speed) {
+				xCord += Math.abs(vi) / 1.5;
+			} else {
+				yCord += Math.abs(vi);
+			}
+		} else {
+			if (time == 0) {
+				if (speed) {
+					xCord += Math.abs(vi) / 1.5;
+				} else {
+					yCord += Math.abs(vi);
+				}
+			} else {
+				int change = (int) (vi + (a * time));
+				if (change > 0) {
+					if (speed) {
+						xCord += Math.abs(change) / 1.5;
+					} else {
+						yCord += Math.abs(change);
+					}
+				}
+			}
+		}
+
+	}
+
+	public String toString() {
+		return ("a = " + a + " vi = " + vi + " xCord = " + xCord + " yCord = "
+				+ yCord + " speed = " + speed);
+	}
+
+}
