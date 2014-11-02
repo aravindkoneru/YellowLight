@@ -63,11 +63,6 @@ public class YellowPanel extends JPanel {
 		// Draw the green rectangle (bottom right)
 		g.fillRect(286, 296, 215, 205);
 
-		//Draw the signal light
-		g.setColor(Color.yellow);
-		g.fillRect(240, 240, 20, 20);
-		
-		g.fillOval(245, 245, 2, 2);
 		// Calibration lines
 		// g2.drawLine(250, 500, 250, 0);
 		// g2.drawLine(0, 250, 500, 250);
@@ -85,8 +80,6 @@ public class YellowPanel extends JPanel {
 
 		}
 		if(next){
-			//System.out.println("NEXT CAR");
-			g2.drawString("NEXT CAR", 215, 280);
 			next = false;
 			counter++;
 			test = cars[counter];
@@ -124,7 +117,6 @@ public class YellowPanel extends JPanel {
 		test.calcMovement();
 		
 		if(test.getChange() < 0){//if the change is negative, that means the car stopped
-			//System.out.println("LESS THAN ZERO");
 			next = true;		//so you can simulate the next car 	
 		}
 		
@@ -134,8 +126,7 @@ public class YellowPanel extends JPanel {
 		if(test.getChange() > 0 && test.getX() < 500 && test.getY() < 500 && test.getX() > 0 && test.getY() > 0) {
 			repaint();
 		}
-		//System.out.println("Finisihed");
-		//next = true;
+		next = true;
 	}
 
 }

@@ -9,7 +9,7 @@ public class YellowFrame extends JFrame {
 	
 	public YellowFrame(){
 		Car[] genCars = genCars();
-		YellowPanel panel = new YellowPanel(genCars);
+		YellowPanel panel = new YellowPanel(genCars[0]);
 		//panel.showCars();
 		getContentPane().add(panel);
 		pack();
@@ -18,9 +18,9 @@ public class YellowFrame extends JFrame {
 	//This code generates the array of cars.
 	//Uses the random situation gen and and the physics sim 
 	public Car[] genCars(){
-		Car[] cars = new Car[100];
+		Car[] cars = new Car[20];
 		Random gen = new Random();
-		for(int x = 0; x < 100; x++){//1.5 feet = 1 pixel 
+		for(int x = 0; x < 20; x++){//1.5 feet = 1 pixel 
 			if(gen.nextInt(2) == 1){ // make the car a 30 mph car
 				RandomSituationGen sit = new RandomSituationGen(false);
 				int startingX = 250;

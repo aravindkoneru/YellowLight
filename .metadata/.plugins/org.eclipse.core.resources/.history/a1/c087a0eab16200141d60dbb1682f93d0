@@ -86,7 +86,7 @@ public class YellowPanel extends JPanel {
 		}
 		if(next){
 			//System.out.println("NEXT CAR");
-			g2.drawString("NEXT CAR", 215, 280);
+			g2.drawString("NEXT CAR", 210, 280);
 			next = false;
 			counter++;
 			test = cars[counter];

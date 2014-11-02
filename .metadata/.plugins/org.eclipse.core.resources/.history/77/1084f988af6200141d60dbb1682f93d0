@@ -11,6 +11,5 @@ public class YellowTester {
 		appFrame.show();
 		//YellowFrame test = new YellowFrame();
 		//test.carTester();s
-		
 	}
 }

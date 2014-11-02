@@ -8,17 +8,15 @@ public class YellowPanel extends JPanel {
 
 	Car[] cars = new Car[20];
 	Car test = null;
-	int counter = 0;
 	private boolean next = false;
 
-	 //Car test = new Car(75.0, -17.0, 15, 250, false, "true");
+	// Car test = new Car(75.0, -17.0, 15, 250, true, "true");
 
 	public YellowPanel(Car[] genCars) {
 		cars = genCars;
 		test = genCars[0];
 	}
 	
-	/*
 	public void showCars(){
 		int counter = 0;
 		for(Car x: cars){
@@ -27,7 +25,6 @@ public class YellowPanel extends JPanel {
 		}
 		System.out.println(counter);
 	}
-	*/
 	
 	//Draws the raods and stuff
 	public void drawRoads(Graphics g){
@@ -63,11 +60,6 @@ public class YellowPanel extends JPanel {
 		// Draw the green rectangle (bottom right)
 		g.fillRect(286, 296, 215, 205);
 
-		//Draw the signal light
-		g.setColor(Color.yellow);
-		g.fillRect(240, 240, 20, 20);
-		
-		g.fillOval(245, 245, 2, 2);
 		// Calibration lines
 		// g2.drawLine(250, 500, 250, 0);
 		// g2.drawLine(0, 250, 500, 250);
@@ -75,27 +67,17 @@ public class YellowPanel extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		drawRoads(g);
 		//The code in the block comment works fine, 
 		//its the uncommented code that the issue
-		
+		/*
 		try {
 			drawCar(g2);
 		} catch (InterruptedException e) {
 
 		}
-		if(next){
-			//System.out.println("NEXT CAR");
-			g2.drawString("NEXT CAR", 215, 280);
-			next = false;
-			counter++;
-			test = cars[counter];
-			repaint();
-		}
-			
+		*/
 		
-		
-/*
+
 		//This part of the code seems to cause the problem
 		for (int x = 0; x < cars.length; x++) {
 			//System.out.println("This is x: " + x);
@@ -109,33 +91,28 @@ public class YellowPanel extends JPanel {
 				}
 			}
 		}
-		*/
 		
 	}
 	
 	//draws the car on the screen and then calculates the 
 	//new (x,y) of the car
 	public void drawCar(Graphics g) throws InterruptedException {
+		drawRoads(g);
 		g.setColor(Color.black);
 		g.fillRect(test.getX(), test.getY(), 10, 10);
 		Thread.sleep(1000);//wait a sec before calculating the positions for the car and redrawing
 		System.out.println("drawing car");
 		test.moreTime();
 		test.calcMovement();
-		
 		if(test.getChange() < 0){//if the change is negative, that means the car stopped
-			//System.out.println("LESS THAN ZERO");
 			next = true;		//so you can simulate the next car 	
 		}
-		
 		//System.out.println(test.getTime());
 		//System.out.println(test.getChange());
 		//Stops the car when velocity is less than 0 or when the car leaves the bounds of the grid 
 		if(test.getChange() > 0 && test.getX() < 500 && test.getY() < 500 && test.getX() > 0 && test.getY() > 0) {
 			repaint();
 		}
-		//System.out.println("Finisihed");
-		//next = true;
 	}
 
 }

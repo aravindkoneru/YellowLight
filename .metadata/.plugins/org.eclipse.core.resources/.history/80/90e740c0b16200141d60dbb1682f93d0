@@ -18,7 +18,7 @@ public class YellowFrame extends JFrame {
 	//This code generates the array of cars.
 	//Uses the random situation gen and and the physics sim 
 	public Car[] genCars(){
-		Car[] cars = new Car[100];
+		Car[] cars = new Car[20];
 		Random gen = new Random();
 		for(int x = 0; x < 100; x++){//1.5 feet = 1 pixel 
 			if(gen.nextInt(2) == 1){ // make the car a 30 mph car
