@@ -57,11 +57,34 @@
 
 <p>In short, the following variables were considered:</p>
 
-<ul>
-<li>Velocity of the car as it approached the intersection</li>
-<li>Deceleration rate of the car</li>
-<li>The distance from the car to the light when the signal changes to yellow</li>
-</ul>
+<dl>
+<dt><b><font color="26D77F">Velocity of the car as it approached the intersection</font></b></dt>
+  <dd><font face="Arial" color="ADDC2B">
+    Since not every car would be moving at the exact same velocity or exactly according
+    to the speed limit, in the computer program, we generated random velocities in range 70-80 ft/s for the 50 mph road 
+    and 41-51 ft/s for the 30mph road. The varying velocities would affect the time needed for the driver to come to a stop 
+    because a faster velocity would require more time for a car to decelerate to 0 ft/s. 
+    Thus, with the 50mph road, the time of yellow was increased to 5 seconds as opposed to the time of yellow for the 30mph 
+    road, which was only 3 seconds, because more time is needed for a vehicle driving at 50mph to completely stop.
+  </font></dd>
+<dt><b><font color="26D77F">Deceleration rate of the car</font></b></dt>
+  <dd><font face="Arial" color="ADDC2B">
+    Since different vehicles have different deceleration rates according to their maintenance, weight, and other factors,
+    we generated random deceleration rates from -15 to -30 ft/s^2 to correspond to differing cars. The varying deceleration rates
+    would affect the time needed for the driver to stop in time because a lower rate of deceleration means that the driver needs
+    more time to reach a velocity of 0. Thus, because of the different rates of deceleration, the time of yellow was increased so
+    that all drivers could safely stop if they so desired.
+  </font></dd>
+<dt><b><font color="26D77F">The distance from the car to the light when the signal changes to yellow</font></b></dt>
+  <dd><font face="Arial" color="ADDC2B">
+    Because drivers are not all at the same position when the traffic light turns yellow, we generated random distances from the
+    traffic light to the car that ranged from 100-200 feet for the 30mph road and 200-300 feet for the 50mph road for each driver.
+    Differing distances of the car from the traffic light affects the time needed for each car to either drive through the yellow light
+    or stop before the intersection. A larger distance would allow a driver to stop safely while a shorter distance would force a driver
+    to pass through the traffic light. To compensate for this, the time of yellow for both roads was sufficiently increased to 
+    allow enough time for drivers to pass through the intersection if they were unable to stop successfully because they were too close to it.
+  </font></dd>
+</dl>
 
 <p>Keeping in mind the variables, we assumed:</p>
 
@@ -1081,7 +1104,9 @@
 <h1>
 <a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Solution</h1>
 
-<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
+<p> Including the one second reaction time for the drivers, this diagram displays appropriate distances for stopping, passing through,
+or doing either for each road.<br>
+<img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
 
 <h1>
 <a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</h1>
