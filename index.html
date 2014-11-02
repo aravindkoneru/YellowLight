@@ -65,28 +65,14 @@
 
 <p>Keeping in mind the variables, we assumed:</p>
 
-<dl>
-<dt>Constant velocity, unless the driver is decelerating </dt>
-<dt>Constant deceleration rates</dt>
-  <dd>Constant deceleration rates ensure that the proper physics equations could be applied to the following situations.
-    
-  </dd>
-<dt>The driver would not accelerate in order to beat the yellow light</dt>
-  <dd>If the driver accelerated to drive through the intersection while the light was still yellow, then the time spent
-    driving before the intersection would decrease. Thus, a lower time for yellow would be needed. However, since most 
-    drivers tend to drive safely and stop or remain at a constant speed instead of speeding up, this factor was disregarded.
-  </dd>
-<dt>The weather is ideal and the road is dry</dt>
-  <dd>If weather and other seasonal factors were to be taken into account, the rate of deceleration would decrease
-    and more distance would be traveled before stopping. Thus, to simplify the model, factors such as ice and rain were
-    disregarded so that deceleration rates could remain constant. This, in turn, decreaseded the time of the yellow light 
-    since the stopping time became shorter due to a faster deceleration speed. 
-  </dd>
-<dt>The driver has a maximum reaction time  of 1 second before hitting the brakes</dt>
-  <dd>This increases the distance that the driver travels before braking. 
-  To compensate for this, the time of yellow for the traffic lights on both roads was increased by 
-  one second so that the driver could have enough time to continue driving if he wanted to.</dd>
-</dl>
+<ul>
+<li>Constant velocity, unless the driver is decelerating </li>
+<li>Constant deceleration rates</li>
+<li>At no point in time would the driver accelerate in order to make the yellow</li>
+<li>The driver is within the speed limit (+ or - a few mph)</li>
+<li>The weather is ideal and the road is dry</li>
+<li>The driver has a maximum reaction time  of 1 second before hitting the brakes</li>
+</ul>
 
 <h1>
 <a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h1>
@@ -1072,7 +1058,7 @@
 <p><strong>Analysis:</strong> <em>Three seconds appears to be the ideal time for a yellow light. All the cars can stop in time and there doesn't seem to be any sort of problem with stopping within the distance.</em></p>
 
 <h1>
-<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Diagram</h1>
+<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Solution</h1>
 
 <p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
 
