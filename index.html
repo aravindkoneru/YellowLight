@@ -48,11 +48,38 @@
 
 <p>We were tasked with <a href="https://drive.google.com/open?id=0By_pVef9Qr65clRBcHdfWVNoeE0&amp;authuser=0">the problem</a> of determining the lengths of different cycles of a traffic light. The problem was highly open-ended and we were only given a few parameters.</p>
 
+<h3>
+<a name="assumptions-and-variables" class="anchor" href="#assumptions-and-variables"><span class="octicon octicon-link"></span></a>Assumptions and Variables</h3>
+
+<p>In this project, we considered a few variables that might change from car to car as it travels through the intersection.</p>
+
+<p>Firstly, we realized that not every car would be moving at the exact same velocity or exactly according to the speed limit, so in the computer program, we generated random velocities in range 70-80 ft/s for the 50 mph road and 41-51 ft/s for the 30mph road. The varying velocities would affect the time needed for the driver to come to a stop because a faster velocity would require more time for a car to decelerate to 0 ft/s. Thus, with the 50mph road, the time of yellow was increased to 5 seconds as opposed to the time of yellow for the 30mph road, which was only 3 seconds, because more time is needed for a vehicle driving at 50mph to completely stop.</p>
+
+<p>In short, the following variables were considered:</p>
+
+<ul>
+<li>Velocity of the car as it approached the intersection</li>
+<li>Deceleration rate of the car</li>
+<li>The distance from the car to the light when the signal changes to yellow</li>
+</ul>
+
+<p>Keeping in mind the variables, we assumed:</p>
+
+<ul>
+<li>Constant velocity, unless the driver is decelerating </li>
+<li>Constant deceleration rates</li>
+<li>At no point in time would the driver accelerate in order to make the yellow</li>
+<li>The driver is within the speed limit (+ or - a few mph)</li>
+<li>The weather is ideal and the road is dry</li>
+</ul>
+
 <h1>
 <a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h1>
 
 <h3>
 <a name="50mph-road-with-constant-light-time-5-seconds" class="anchor" href="#50mph-road-with-constant-light-time-5-seconds"><span class="octicon octicon-link"></span></a>50mph Road with Constant Light Time (5 seconds)</h3>
+
+<hr>
 
 <table>
 <thead>
@@ -297,6 +324,8 @@
 <h3>
 <a name="50mph-road-with-constant-light-time-and-distance-from-light-5-seconds-and-250-ft" class="anchor" href="#50mph-road-with-constant-light-time-and-distance-from-light-5-seconds-and-250-ft"><span class="octicon octicon-link"></span></a>50mph Road with Constant Light Time and Distance from Light (5 seconds and 250 ft)</h3>
 
+<hr>
+
 <table>
 <thead>
 <tr>
@@ -540,6 +569,8 @@
 <h3>
 <a name="30mph-road-with-constant-light-time-5-seconds" class="anchor" href="#30mph-road-with-constant-light-time-5-seconds"><span class="octicon octicon-link"></span></a>30mph Road with Constant Light Time (5 seconds)</h3>
 
+<hr>
+
 <table>
 <thead>
 <tr>
@@ -782,6 +813,8 @@
 
 <h3>
 <a name="30mph-road-with-constant-light-time-3-seconds" class="anchor" href="#30mph-road-with-constant-light-time-3-seconds"><span class="octicon octicon-link"></span></a>30mph Road with Constant Light Time (3 seconds)</h3>
+
+<hr>
 
 <table>
 <thead>
