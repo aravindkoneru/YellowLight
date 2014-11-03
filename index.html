@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Yellow Light Project</title>
+    <title>Yellowlight by aravindkoneru</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -38,18 +38,22 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h1><font color="#FEC30A">
-<a name="yellowlight" class="anchor" href="#yellowlight"><span class="octicon octicon-link"></span></a>YellowLight</font></h1>
+        <h1>
+<a name="yellowlight" class="anchor" href="#yellowlight"><span class="octicon octicon-link"></span></a>YellowLight</h1>
 
 <p>This computer simulation is our solution to the complex problem of determining the optimal cycle for a traffic light. Although the simulation is fairly simplistic and does not take into account many real world variables (weather, time of day, road location, traffic production, etc.), it does provide a physics based estimate for the cycle of the traffic light. </p>
 
-<h1><font color="#FEC30A">
-<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</font></h1>
+<h1>
+<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</h1>
 
 <p>We were tasked with <a href="https://drive.google.com/open?id=0By_pVef9Qr65clRBcHdfWVNoeE0&amp;authuser=0">the problem</a> of determining the lengths of different cycles of a traffic light. The problem was highly open-ended and we were only given a few parameters.</p>
 
 <h3>
 <a name="assumptions-and-variables" class="anchor" href="#assumptions-and-variables"><span class="octicon octicon-link"></span></a>Assumptions and Variables</h3>
+
+<p>In this project, we considered a few variables that might change from car to car as it travels through the intersection.</p>
+
+<p>Firstly, we realized that not every car would be moving at the exact same velocity or exactly according to the speed limit, so in the computer program, we generated random velocities in range 70-80 ft/s for the 50 mph road and 41-51 ft/s for the 30mph road. The varying velocities would affect the time needed for the driver to come to a stop because a faster velocity would require more time for a car to decelerate to 0 ft/s. Thus, with the 50mph road, the time of yellow was increased to 5 seconds as opposed to the time of yellow for the 30mph road, which was only 3 seconds, because more time is needed for a vehicle driving at 50mph to completely stop.</p>
 
 <p>In short, the following variables were considered:</p>
 
@@ -109,8 +113,59 @@
 </li>
 </ul>
 
-<h1><font color="#FEC30A">
-<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</font></h1>
+<h1>
+<a name="calculations" class="anchor" href="#calculations"><span class="octicon octicon-link"></span></a>Calculations</h1>
+
+<p>These are sample calculations that the program also uses in order to determine if the car can stop or not.</p>
+
+<h2>
+<a name="50-mph-road" class="anchor" href="#50-mph-road"><span class="octicon octicon-link"></span></a>50 mph Road</h2>
+
+<h3>
+<a name="converting-mph-to-fts" class="anchor" href="#converting-mph-to-fts"><span class="octicon octicon-link"></span></a>Converting mph to ft/s</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/50%20mph/50mph%20to%20fts.png?raw=true" alt="Image"></p>
+
+<h3>
+<a name="assumptions" class="anchor" href="#assumptions"><span class="octicon octicon-link"></span></a>Assumptions</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/50%20mph/50mph%20assumptions.png?raw=true" alt="Image"></p>
+
+<h3>
+<a name="not-braking" class="anchor" href="#not-braking"><span class="octicon octicon-link"></span></a>Not Braking</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/50%20mph/not%20stopping%2050mph.png?raw=true" alt="Image"></p>
+
+<h3>
+<a name="braking" class="anchor" href="#braking"><span class="octicon octicon-link"></span></a>Braking</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/50%20mph/50mph%20braking.png?raw=true" alt="Image"></p>
+
+<h2>
+<a name="30-mph-road" class="anchor" href="#30-mph-road"><span class="octicon octicon-link"></span></a>30 mph Road</h2>
+
+<h3>
+<a name="converting-mph-to-fts-1" class="anchor" href="#converting-mph-to-fts-1"><span class="octicon octicon-link"></span></a>Converting mph to ft/s</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/30%20mph/30mph%20to%20fts.png?raw=true" alt="Image"></p>
+
+<h3>
+<a name="assumptions-1" class="anchor" href="#assumptions-1"><span class="octicon octicon-link"></span></a>Assumptions</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/30%20mph/30mph%20Assumptions.png?raw=true" alt="Image"></p>
+
+<h3>
+<a name="not-braking-1" class="anchor" href="#not-braking-1"><span class="octicon octicon-link"></span></a>Not Braking</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/30%20mph/not%20stopping%2030mph.png" alt="Image"></p>
+
+<h3>
+<a name="braking-1" class="anchor" href="#braking-1"><span class="octicon octicon-link"></span></a>Braking</h3>
+
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/30%20mph/30mph%20Braking.png" alt="Image"></p>
+
+<h1>
+<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h1>
 
 <h3>
 <a name="50mph-road-with-constant-light-time-5-seconds" class="anchor" href="#50mph-road-with-constant-light-time-5-seconds"><span class="octicon octicon-link"></span></a>50mph Road with Constant Light Time (5 seconds)</h3>
@@ -1092,16 +1147,13 @@
 
 <p><strong>Analysis:</strong> <em>Three seconds appears to be the ideal time for a yellow light. All the cars can stop in time and there doesn't seem to be any sort of problem with stopping within the distance.</em></p>
 
-<h1><font color="#FEC30A">
-<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Diagram</font></h1>
+<h1>
+<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Solution</h1>
 
-<p>
-This diagram displays the zones where a driver can pass through the intersection, stop before it, or do either on both roads.
-It takes into account the one second reaction time as well.<br>
-<img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
 
-<h1><font color="#FEC30A">
-<a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</font></h1>
+<h1>
+<a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</h1>
 
 <p>“Adverse Weather Conditions.” Drivers Ed. Drivers Ed, 2014. Web. 2 Nov. 2014. &lt;<a href="https://driversed.com/driving-information/driving-conditions/adverse-weather-conditions.aspx">https://driversed.com/driving-information/driving-conditions/adverse-weather-conditions.aspx</a>&gt;.</p>
 
@@ -1115,8 +1167,8 @@ It takes into account the one second reaction time as well.<br>
 
 <p>“Traffic Signals Information.” Queensland Government. N.p., 25 June 2014. Web. 2 Nov. 2014. &lt;<a href="http://www.tmr.qld.gov.au/Travel-and-transport/Road-and-traffic-info/Traffic-Signals-Information.aspx">http://www.tmr.qld.gov.au/Travel-and-transport/Road-and-traffic-info/Traffic-Signals-Information.aspx</a>&gt;.</p>
 
-<h1><font color="#FEC30A">
-<a name="credit" class="anchor" href="#credit"><span class="octicon octicon-link"></span></a>Credit</font></h1>
+<h1>
+<a name="credit" class="anchor" href="#credit"><span class="octicon octicon-link"></span></a>Credit</h1>
 
 <p><a href="https://github.com/aravindkoneru">Aravind Koneru</a></p>
 
