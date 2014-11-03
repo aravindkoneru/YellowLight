@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Yellow Light Project</title>
+    <title>Yellowlight by aravindkoneru</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -38,13 +38,13 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h1><font color="#FEC30A">
-<a name="yellowlight" class="anchor" href="#yellowlight"><span class="octicon octicon-link"></span></a>YellowLight</font></h1>
+        <h1>
+<a name="yellowlight" class="anchor" href="#yellowlight"><span class="octicon octicon-link"></span></a>YellowLight</h1>
 
 <p>This computer simulation is our solution to the complex problem of determining the optimal cycle for a traffic light. Although the simulation is fairly simplistic and does not take into account many real world variables (weather, time of day, road location, traffic production, etc.), it does provide a physics based estimate for the cycle of the traffic light. </p>
 
-<h1><font color="#FEC30A">
-<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</font></h1>
+<h1>
+<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</h1>
 
 <p>We were tasked with <a href="https://drive.google.com/open?id=0By_pVef9Qr65clRBcHdfWVNoeE0&amp;authuser=0">the problem</a> of determining the lengths of different cycles of a traffic light. The problem was highly open-ended and we were only given a few parameters.</p>
 
@@ -57,69 +57,64 @@
 
 <p>In short, the following variables were considered:</p>
 
-<dl>
-<dt><b><font color="26D77F">Velocity of the car as it approached the intersection</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">
-    Since not every car would be moving at the exact same velocity or exactly according
-    to the speed limit, in the computer program, we generated random velocities in range 70-80 ft/s for the 50 mph road 
-    and 41-51 ft/s for the 30mph road. The varying velocities would affect the time needed for the driver to come to a stop 
-    because a faster velocity would require more time for a car to decelerate to 0 ft/s. 
-    Thus, with the 50mph road, the time of yellow was increased to 5 seconds as opposed to the time of yellow for the 30mph 
-    road, which was only 3 seconds, because more time is needed for a vehicle driving at 50mph to completely stop.
-  </font></dd>
-<dt><b><font color="26D77F">Deceleration rate of the car</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">
-    Since different vehicles have different deceleration rates according to their maintenance, weight, and other factors,
-    we generated random deceleration rates from -15 to -30 ft/s^2 to correspond to differing cars. The varying deceleration rates
-    would affect the time needed for the driver to stop in time because a lower rate of deceleration means that the driver needs
-    more time to reach a velocity of 0. Thus, because of the different rates of deceleration, the time of yellow was increased so
-    that all drivers could safely stop if they so desired.
-  </font></dd>
-<dt><b><font color="26D77F">The distance from the car to the light when the signal changes to yellow</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">
-    Because drivers are not all at the same position when the traffic light turns yellow, we generated random distances from the
-    traffic light to the car that ranged from 100-200 feet for the 30mph road and 200-300 feet for the 50mph road for each driver.
-    Differing distances of the car from the traffic light affects the time needed for each car to either drive through the yellow light
-    or stop before the intersection. A larger distance would allow a driver to stop safely while a shorter distance would force a driver
-    to pass through the traffic light. To compensate for this, the time of yellow for both roads was sufficiently increased to 
-    allow enough time for drivers to pass through the intersection if they were unable to stop successfully because they were too close to it.
-  </font></dd>
-</dl>
+<ul>
+<li>Velocity of the car as it approached the intersection
+
+<ul>
+<li>Since not every car would be moving at the exact same velocity or exactly according to the speed limit, in the computer program, we generated random velocities in range 70-80 ft/s for the 50 mph road and 41-51 ft/s for the 30mph road. The varying velocities would affect the time needed for the driver to come to a stop because a faster velocity would require more time for a car to decelerate to 0 ft/s. Thus, with the 50mph road, the time of yellow was increased to 5 seconds as opposed to the time of yellow for the 30mph road, which was only 3 seconds, because more time is needed for a vehicle driving at 50mph to completely stop.</li>
+</ul>
+</li>
+<li>Deceleration rate of the car
+
+<ul>
+<li>Since different vehicles have different deceleration rates according to their maintenance, weight, and other factors, we generated random deceleration rates from -15 to -30 ft/s^2 to correspond to differing cars. The varying deceleration rates would affect the time needed for the driver to stop in time because a lower rate of deceleration means that the driver needs more time to reach a velocity of 0. Thus, because of the different rates of deceleration, the time of yellow was increased so that all drivers could safely stop if they so desired.</li>
+</ul>
+</li>
+<li>The distance from the car to the light when the signal changes to yellow
+
+<ul>
+<li>Because drivers are not all at the same position when the traffic light turns yellow, we generated random distances from the traffic light to the car that ranged from 100-200 feet for the 30mph road and 200-300 feet for the 50mph road for each driver. Differing distances of the car from the traffic light affects the time needed for each car to either drive through the yellow light or stop before the intersection. A larger distance would allow a driver to stop safely while a shorter distance would force a driver to pass through the traffic light. To compensate for this, the time of yellow for both roads was sufficiently increased to allow enough time for drivers to pass through the intersection if they were unable to stop successfully because they were too close to it.</li>
+</ul>
+</li>
+</ul>
 
 <p>Keeping in mind the variables, we assumed:</p>
 
-<dl>
-<dt><b><font color="26D77F">Constant velocity, unless the driver is decelerating </font></b></dt>
-<dd><font face="Arial" color="#FEC30A">
-  Constant velocity ensures that the proper physics equation could be applied in this situation. It also ensures that
-  the time for yellow is fitting for the vehicles traveling through the intersection. See the following two points for a more
-  complete explanation.
-</font></dd>
-<dt><b><font color="26D77F">Constant deceleration rates</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">Constant deceleration rates ensure that the proper physics equations could be applied to the following situations.
-    With changing deceleration rates, the time for yellow would have to be increased or decreased if deceleration was slower or faster, respectively.
-    By keeping deceleration constant, the time for yellow for our traffic light cycle could remain more accurate and more precise for these vehicles.
-  </font></dd>
-<dt><b><font color="26D77F">The driver would not accelerate in order to beat the yellow light</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">If the driver accelerated to drive through the intersection while the light was still yellow, then the time spent
-    driving before the intersection would decrease. Thus, a lower time for yellow would be needed. However, since most 
-    drivers tend to drive safely and stop or remain at a constant speed instead of speeding up, this factor was disregarded.
-  </font></dd>
-<dt><b><font color="26D77F">The weather is ideal and the road is dry</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">If weather and other seasonal factors were to be taken into account, the rate of deceleration would decrease
-    and more distance would be traveled before stopping. Thus, to simplify the model, factors such as ice and rain were
-    disregarded so that deceleration rates could remain constant. This, in turn, decreaseded the time of the yellow light 
-    since the stopping time became shorter due to a faster deceleration speed. 
-  </font></dd>
-<dt><b><font color="26D77F">The driver has a maximum reaction time  of 1 second before hitting the brakes</font></b></dt>
-  <dd><font face="Arial" color="#FEC30A">This increases the distance that the driver travels before braking. 
-  To compensate for this, the time of yellow for the traffic lights on both roads was increased by 
-  one second so that the driver could have enough time to continue driving if he wanted to.
-  </font></dd>
-</dl>
+<ul>
+<li>Constant velocity, unless the driver is decelerating 
 
-<h1><font color="#FEC30A">
-<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</font></h1>
+<ul>
+<li>Constant velocity ensures that the proper physics equation could be applied in this situation. It also ensures that the time for yellow is fitting for the vehicles traveling through the intersection. See the following two points for a more complete explanation.</li>
+</ul>
+</li>
+<li>Constant deceleration rates
+
+<ul>
+<li>With changing deceleration rates, the time for yellow would have to be increased or decreased if deceleration was slower or faster, respectively. By keeping deceleration constant, the time for yellow for our traffic light cycle could remain more accurate and more precise for these vehicles.</li>
+</ul>
+</li>
+<li>At no point in time would the driver accelerate in order to beat the yellow
+
+<ul>
+<li>If the driver accelerated to drive through the intersection while the light was still yellow, then the time spent driving before the intersection would decrease. Thus, a lower time for yellow would be needed. However, since most drivers tend to drive safely and stop or remain at a constant speed instead of speeding up, this factor was disregarded.</li>
+</ul>
+</li>
+<li>The weather is ideal and the road is dry
+
+<ul>
+<li>If weather and other seasonal factors were to be taken into account, the rate of deceleration would decrease and more distance would be traveled before stopping. Thus, to simplify the model, factors such as ice and rain were disregarded so that deceleration rates could remain constant. This, in turn, decreaseded the time of the yellow light since the stopping time became shorter due to a faster deceleration speed. </li>
+</ul>
+</li>
+<li>The driver has a maximum reaction time  of 1 second before hitting the brakes
+
+<ul>
+<li>This increases the distance that the driver travels before braking. To compensate for this, the time of yellow for the traffic lights on both roads was increased by one second so that the driver could have enough time to continue driving if he wanted to.</li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h1>
 
 <h3>
 <a name="50mph-road-with-constant-light-time-5-seconds" class="anchor" href="#50mph-road-with-constant-light-time-5-seconds"><span class="octicon octicon-link"></span></a>50mph Road with Constant Light Time (5 seconds)</h3>
@@ -129,13 +124,13 @@
 <table>
 <thead>
 <tr>
-<th align="center">Velocity</th>
-<th align="center">Acceleration</th>
-<th align="center">Stopping Distance</th>
-<th align="center">Distance from Light</th>
-<th align="center">Stopping Time</th>
-<th align="center">Distance Before Braking</th>
-<th align="center">Light Time</th>
+<th align="center">Velocity (ft/s)</th>
+<th align="center">Acceleration (ft/s^2)</th>
+<th align="center">Stopping Distance (ft)</th>
+<th align="center">Distance from Light (ft)</th>
+<th align="center">Stopping Time (s)</th>
+<th align="center">Distance Before Braking (ft)</th>
+<th align="center">Light Time (s)</th>
 <th align="center">Stop In Time</th>
 <th align="center">Stop in Distance</th>
 </tr>
@@ -374,13 +369,13 @@
 <table>
 <thead>
 <tr>
-<th align="center">Velocity</th>
-<th align="center">Acceleration</th>
-<th align="center">Stopping Distance</th>
-<th align="center">Distance from   Light</th>
-<th align="center">Stopping Time</th>
-<th align="center">Distance   Before Braking</th>
-<th align="center">Light Time</th>
+<th align="center">Velocity (ft/s)</th>
+<th align="center">Acceleration (ft/s^2)</th>
+<th align="center">Stopping Distance (ft)</th>
+<th align="center">Distance from Light (ft)</th>
+<th align="center">Stopping Time (s)</th>
+<th align="center">Distance Before Braking (ft)</th>
+<th align="center">Light Time (s)</th>
 <th align="center">Stop In Time</th>
 <th align="center">Stop in Distance</th>
 </tr>
@@ -619,13 +614,13 @@
 <table>
 <thead>
 <tr>
-<th align="center">Velocity</th>
-<th align="center">Acceleration</th>
-<th align="center">Stopping Distance</th>
-<th align="center">Distance from   Light</th>
-<th align="center">Stopping Time</th>
-<th align="center">Distance   Before Braking</th>
-<th align="center">Light Time</th>
+<th align="center">Velocity (ft/s)</th>
+<th align="center">Acceleration (ft/s^2)</th>
+<th align="center">Stopping Distance (ft)</th>
+<th align="center">Distance from Light (ft)</th>
+<th align="center">Stopping Time (s)</th>
+<th align="center">Distance Before Braking (ft)</th>
+<th align="center">Light Time (s)</th>
 <th align="center">Stop In Time</th>
 <th align="center">Stop in Distance</th>
 </tr>
@@ -864,13 +859,13 @@
 <table>
 <thead>
 <tr>
-<th align="center">Velocity</th>
-<th align="center">Acceleration</th>
-<th align="center">Stopping Distance</th>
-<th align="center">Distance from   Light</th>
-<th align="center">Stopping Time</th>
-<th align="center">Distance   Before Braking</th>
-<th align="center">Light Time</th>
+<th align="center">Velocity (ft/s)</th>
+<th align="center">Acceleration (ft/s^2)</th>
+<th align="center">Stopping Distance (ft)</th>
+<th align="center">Distance from Light (ft)</th>
+<th align="center">Stopping Time (s)</th>
+<th align="center">Distance Before Braking (ft)</th>
+<th align="center">Light Time (s)</th>
 <th align="center">Stop In Time</th>
 <th align="center">Stop in Distance</th>
 </tr>
@@ -1101,33 +1096,25 @@
 
 <p><strong>Analysis:</strong> <em>Three seconds appears to be the ideal time for a yellow light. All the cars can stop in time and there doesn't seem to be any sort of problem with stopping within the distance.</em></p>
 
-<h1><font color="#FEC30A">
-<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Diagram</font></h1>
+<h1>
+<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Solution</h1>
 
-<p> Including the one second reaction time for the drivers, this diagram displays appropriate distances for stopping, passing through,
-or doing either for each road.<br>
-<img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
+<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
 
-<h1><font color="#FEC30A">
-<a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</font></h1>
+<h1>
+<a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</h1>
 
-<p>“Analysis of Acceleration in Passenger Cars and Heavy Trucks.” SAE International. SAE, 2014. Web. 2 Nov. 2014. &lt;<a href="http://papers.sae.org/950136/">http://papers.sae.org/950136/</a>&gt;.</p>
+<p>“Adverse Weather Conditions.” Drivers Ed. Drivers Ed, 2014. Web. 2 Nov. 2014. &lt;<a href="https://driversed.com/driving-information/driving-conditions/adverse-weather-conditions.aspx">https://driversed.com/driving-information/driving-conditions/adverse-weather-conditions.aspx</a>&gt;.</p>
 
 <p>“Auto Stopping Distance.” Hyper Physics. N.p., n.d. Web. 2 Nov. 2014. &lt;<a href="http://hyperphysics.phy-astr.gsu.edu/hbase/crstp.html">http://hyperphysics.phy-astr.gsu.edu/hbase/crstp.html</a>&gt;.</p>
 
-<p>“Car Acceleration.” The Engineering Toolbox. N.p., n.d. Web. 2 Nov. 2014. &lt;<a href="http://www.engineeringtoolbox.com/car-acceleration-d_1309.html">http://www.engineeringtoolbox.com/car-acceleration-d_1309.html</a>&gt;..</p>
-
 <p>“Reaction Time Statistics.” Human Benchmark. Human Benchmark, n.d. Web. 2 Nov. 2014. &lt;<a href="http://www.humanbenchmark.com/tests/reactiontime/statistics">http://www.humanbenchmark.com/tests/reactiontime/statistics</a>&gt;.</p>
-
-<p>“Red-Light Running Facts.” Red Means Red. N.p., 2014. Web. 2 Nov. 2014. &lt;<a href="http://brgov.com/redlight/redlightrunningfacts.htm">http://brgov.com/redlight/redlightrunningfacts.htm</a>&gt;.</p>
 
 <p>Short Yellow Lights. National Motorist Association Foundation, n.d. Web. 2 Nov. 2014. &lt;<a href="http://www.shortyellowlights.com/standards/">http://www.shortyellowlights.com/standards/</a>&gt;.</p>
 
-<p>“Speed Limit Fact Sheet.” National Motorist Association. N.p., n.d. Web. 2 Nov. 2014. &lt;<a href="http://www.motorists.org/speed-limits/speed-limit-fact-sheet.pdf">http://www.motorists.org/speed-limits/speed-limit-fact-sheet.pdf</a>&gt;.</p>
+<p>“Traffic Signal Change Intervals: Policies, Practices, and  Saftey.” Safer Streets. N.p., n.d. Web. 2 Nov. 2014. &lt;<a href="http://saferstreetsla.org/wp-content/uploads/documents/Traffic%20Signal%20Change%20Intervals-Stein.pdf">http://saferstreetsla.org/wp-content/uploads/documents/Traffic%20Signal%20Change%20Intervals-Stein.pdf</a>&gt;.</p>
 
-<p>“Stopping Distances.” Drive and Stay Alive. Drive and Stay Alive, 2003. Web. 2 Nov. 2014. &lt;<a href="http://www.driveandstayalive.com/info%20section/stopping-distances.htm">http://www.driveandstayalive.com/info%20section/stopping-distances.htm</a>&gt;.</p>
-
-<p>“What Makes a Good Driver.” Lets Talk Driving. N.p., n.d. Web. 2 Nov. 2014. &lt;<a href="http://www.letstalkdriving.co.uk/WHAT%20MAKES%20A%20GOOD%20DRIVER.htm">http://www.letstalkdriving.co.uk/WHAT%20MAKES%20A%20GOOD%20DRIVER.htm</a>&gt;.</p>
+<p>“Traffic Signals Information.” Queensland Government. N.p., 25 June 2014. Web. 2 Nov. 2014. &lt;<a href="http://www.tmr.qld.gov.au/Travel-and-transport/Road-and-traffic-info/Traffic-Signals-Information.aspx">http://www.tmr.qld.gov.au/Travel-and-transport/Road-and-traffic-info/Traffic-Signals-Information.aspx</a>&gt;.</p>
 
 <h1>
 <a name="credit" class="anchor" href="#credit"><span class="octicon octicon-link"></span></a>Credit</h1>
