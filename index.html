@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Yellowlight by aravindkoneru</title>
+    <title>Yellow Light Project</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -38,13 +38,13 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h1>
-<a name="yellowlight" class="anchor" href="#yellowlight"><span class="octicon octicon-link"></span></a>YellowLight</h1>
+        <h1><font color="#FEC30A">
+<a name="yellowlight" class="anchor" href="#yellowlight"><span class="octicon octicon-link"></span></a>YellowLight</font></h1>
 
 <p>This computer simulation is our solution to the complex problem of determining the optimal cycle for a traffic light. Although the simulation is fairly simplistic and does not take into account many real world variables (weather, time of day, road location, traffic production, etc.), it does provide a physics based estimate for the cycle of the traffic light. </p>
 
-<h1>
-<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</h1>
+<h1><font color="#FEC30A">
+<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</font></h1>
 
 <p>We were tasked with <a href="https://drive.google.com/open?id=0By_pVef9Qr65clRBcHdfWVNoeE0&amp;authuser=0">the problem</a> of determining the lengths of different cycles of a traffic light. The problem was highly open-ended and we were only given a few parameters.</p>
 
@@ -113,8 +113,8 @@
 </li>
 </ul>
 
-<h1>
-<a name="calculations" class="anchor" href="#calculations"><span class="octicon octicon-link"></span></a>Calculations</h1>
+<h1><font color="#FEC30A">
+<a name="calculations" class="anchor" href="#calculations"><span class="octicon octicon-link"></span></a>Calculations</font></h1>
 
 <p>These are sample calculations that the program also uses in order to determine if the car can stop or not.</p>
 
@@ -164,8 +164,8 @@
 
 <p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/30%20mph/30mph%20Braking.png?raw=true" alt="Image"></p>
 
-<h1>
-<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h1>
+<h1><font color="#FEC30A">
+<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</font></h1>
 
 <h3>
 <a name="50mph-road-with-constant-light-time-5-seconds" class="anchor" href="#50mph-road-with-constant-light-time-5-seconds"><span class="octicon octicon-link"></span></a>50mph Road with Constant Light Time (5 seconds)</h3>
@@ -1147,13 +1147,34 @@
 
 <p><strong>Analysis:</strong> <em>Three seconds appears to be the ideal time for a yellow light. All the cars can stop in time and there doesn't seem to be any sort of problem with stopping within the distance.</em></p>
 
-<h1>
-<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Solution</h1>
+<h1><font color="#FEC30A">
+<a name="solution" class="anchor" href="#solution"><span class="octicon octicon-link"></span></a>Diagram</font></h1>
 
-<p><img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
+<p>
+The diagram displays the times for stopping, passing through, and doing either for both the 50 mph and 30 mph roads, and 
+the one second reaction time was taken into account while making this diagram. <br>
+<img src="https://github.com/aravindkoneru/YellowLight/blob/gh-pages/images/Diagram.jpg?raw=true" alt="Image"></p>
 
-<h1>
-<a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</h1>
+<h1><font color="#FEC30A">
+  <a name="conclusion" class = "anchor" href="#conclusion"><span class="octicon octicon-link"></span></a>Conclusion</font></h1>
+
+<p><u>Times for 50 mph Light:</u><br>
+  Green - 25 seconds<br>
+  Yellow - 5 seconds<br>
+  Red - 30 seconds<br><br>
+
+  <u>Times for 30 mph Light:</u><br>
+  Green - 27 seconds<br>
+  Yellow - 3 seconds<br>
+  Red - 30 seconds<br><br>
+
+  In consideration of the velocity, rate of deceleration, and distance from the light, the time for yellow is 5 seconds for the 50 mph road and 3 seconds for the 30 mph road. Since more time and distance is needed for faster cars to completely stop, the light for the 50 mph road is set to a longer time so that cars have time to either stop if they want to or pass through the intersection if they don’t have enough time. Furthermore, through analysis of the data that was collected, an optimal time of 5 seconds and 3 seconds was found for the 50 mph road and the 30 mph road, respectively. The quality of these values is further supported by traffic light standards in the United States (yellow lights on 50 mph roads are typically 5.5 seconds). In our data there was only one scenario in which our time of 5 seconds was not enough for a car on the 50 mph road to stop safely. All other cars with generated values easily braked in time for the yellow light. Regarding the yellow light time for the 30 mph road, the United States standard is 3.5 seconds. However, similar to the previously mentioned data for the 50 mph road, there was only one case in which a car failed to stop in time for the yellow light. Therefore, in each case where only 1 out of 20 cars failed to stop in mere fractions of a second, our time values for each traffic lights are accurate.
+
+In our research, most authorities cited times of 45-120 seconds as the total length for a light cycle. Thus, for our traffic light, we decided to have a light cycle of one minute for both traffic lights. The standard cycle time for each light ensures that commuters of both roads will not have to unfairly wait for one another. Additionally, the cycle time of 60 seconds, low compared to those of  traffic lights of other roads, is a reasonable way to accomplish this goal, as the traffic built up in each road can be quickly released after a brief 30 second wait, allowing for fast and efficient travel. 
+</p>
+
+<h1><font color="#FEC30A">
+<a name="citationsresources-used" class="anchor" href="#citationsresources-used"><span class="octicon octicon-link"></span></a>Citations/Resources Used</font></h1>
 
 <p>“Adverse Weather Conditions.” Drivers Ed. Drivers Ed, 2014. Web. 2 Nov. 2014. &lt;<a href="https://driversed.com/driving-information/driving-conditions/adverse-weather-conditions.aspx">https://driversed.com/driving-information/driving-conditions/adverse-weather-conditions.aspx</a>&gt;.</p>
 
@@ -1167,14 +1188,14 @@
 
 <p>“Traffic Signals Information.” Queensland Government. N.p., 25 June 2014. Web. 2 Nov. 2014. &lt;<a href="http://www.tmr.qld.gov.au/Travel-and-transport/Road-and-traffic-info/Traffic-Signals-Information.aspx">http://www.tmr.qld.gov.au/Travel-and-transport/Road-and-traffic-info/Traffic-Signals-Information.aspx</a>&gt;.</p>
 
-<h1>
-<a name="credit" class="anchor" href="#credit"><span class="octicon octicon-link"></span></a>Credit</h1>
+<h1><font color="#FEC30A">
+<a name="credit" class="anchor" href="#credit"><span class="octicon octicon-link"></span></a>Credit</font></h1>
 
-<p><a href="https://github.com/aravindkoneru">Aravind Koneru</a></p>
+<p><a href="https://github.com/aravindkoneru">Aravind Koneru - Program/Tables, Calculations, Website</a></p>
 
-<p><a href="https://www.github.com/jonchen123">Jonathan Chen</a></p>
+<p><a href="https://www.github.com/jonchen123">Jonathan Chen - Program/Tables, Assumptions/Variables, Website</a></p>
 
-<p>Eric Zhang</p>
+<p>Eric Zhang - Research and Citations, Diagram, Conclusion/Presentation of Findings</p>
       </section>
 
     </div>
